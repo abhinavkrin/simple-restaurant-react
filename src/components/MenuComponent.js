@@ -22,8 +22,10 @@ import  {Card,CardImg,CardImgOverlay,CardTitle}  from 'reactstrap';
             );
         });
         return (
-            <div className="row">
+            <div className="container">
+                <div className="row">
                     {menu}
+                </div>
             </div>
         );
     } 

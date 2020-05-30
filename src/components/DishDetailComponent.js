@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import  {Component} from 'react';
 import {Button,Modal,Row, Label, Col, ModalBody, ModalHeader} from 'reactstrap';
 import {Control, LocalForm, Errors} from 'react-redux-form';
+import { Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
 
 const required = (val)=> val&&val.length;
 
@@ -26,7 +28,7 @@ class CommentForm extends Component{
     }
     handleSubmit(values){
         this.toggleModal();
-        alert("Comment added:\n"+JSON.stringify(values));
+        this.props.addComment(this.props.dishId,values.rating, values.author, values.comment);
     }
     render(){
         return (
@@ -104,7 +106,7 @@ function RenderDish({dish}){
     return (
 
         <Card>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardImg width="100%" src={baseUrl+dish.image} alt={dish.name} />
             <CardBody>
                 <CardTitle>{dish.name}</CardTitle>
                 <CardText>{dish.description}</CardText>
@@ -123,20 +125,38 @@ function RenderComment({comment}){
         );
 }
 
-function RenderComments({comments}){
+function RenderComments({comments,addComment,dishId}){
     const commentsHTML=comments.map(comment=>{
         return <RenderComment key={`comment${comment.id}`} comment={comment} />
     });
     return (
         <React.Fragment>
             {commentsHTML}
-            <CommentForm/>
+            <CommentForm dishId={dishId} addComment={addComment}/>
         </React.Fragment>
     )
 }
 
 export default function DishDetail(props){
-    if(props.dish){
+    if(props.dishesLoading){
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if(props.dishesErrMess){
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4 className="text-danger">{props.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if(props.dish){
         return (
             <div className="container">
                 <div className="row ">
@@ -161,7 +181,10 @@ export default function DishDetail(props){
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments}/>
+                        <RenderComments comments={props.comments}
+                            addComment={props.addComment}
+                            dishId={props.dish.id}
+                        />
                     </div>
                 </div>
             </div>

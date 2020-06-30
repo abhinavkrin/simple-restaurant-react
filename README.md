@@ -11,7 +11,7 @@ First, Install dependencies using "yarn install"
 #### Start JSON server: yarn json
 This project need as JSON database to load assets. Start the JSON server using "yarn json" . The JSON server will run on localhost:3001 . If the address of json server is different from "localhost:3001" . The same must be updated in src/shared/baseUrl.js
 #### Start React App: yarn start
-Start the website server using "yarn start". The website will be accessible on localhost:3001
+Start the website server using "yarn start". The website will be accessible on localhost:3000
 
 
 

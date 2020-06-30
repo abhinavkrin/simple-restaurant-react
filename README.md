@@ -1,6 +1,7 @@
 ## How to run this website
 
 ### Method 1 (recommended)
+#### Install Dependencies: yarn install
 #### Run script: yarn autorun
 This will start a JSON server and serve the website at **localhost:3001**
 ### Method 2

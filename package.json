@@ -32,7 +32,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json": "json-server --watch server/db.json --static ./server/public -p 3001 -d 2000"
+    "json": "json-server --watch server/db.json --static ./server/public -p 3001 -d 2000",
+    "autorun": "json-server --watch server/db.json --static build -p 3001 -d 2000"
   },
   "eslintConfig": {
     "extends": "react-app"

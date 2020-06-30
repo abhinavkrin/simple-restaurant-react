@@ -1,17 +1,21 @@
 ## How to run this website
 
-### Install dependencies: yarn install
+### Method 1 (recommended)
+#### Run script: yarn autorun
+This will start a JSON server and serve the website at **localhost:3001**
+### Method 2
+
+#### Install dependencies: yarn install
 First, Install dependencies using "yarn install"
 
-### Start JSON server: yarn json
-This project need as JSON database to load assets. Start the JSON server using "yarn json" . The JSON server will run on localhost:3001
-
-### Start React App: yarn start
+#### Start JSON server: yarn json
+This project need as JSON database to load assets. Start the JSON server using "yarn json" . The JSON server will run on localhost:3001 . If the address of json server is different from "localhost:3001" . The same must be updated in src/shared/baseUrl.js
+#### Start React App: yarn start
 Start the website server using "yarn start". The website will be accessible on localhost:3001
 
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

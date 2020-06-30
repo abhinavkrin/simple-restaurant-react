@@ -20,8 +20,8 @@ class Contact extends Component{
         this.handleSubmit =this.handleSubmit.bind(this);
     }
     handleSubmit(values){
-        console.log("Current State:\n"+JSON.stringify(values));
-        alert("Current State:\n"+JSON.stringify(values));
+        console.log("From Handle Submit",values);
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }    
 

@@ -1,3 +1,16 @@
+## How to run this website
+
+### Install dependencies: yarn install
+First, Install dependencies using "yarn install"
+
+### Start JSON server: yarn json
+This project need as JSON database to load assets. Start the JSON server using "yarn json" . The JSON server will run on localhost:3001
+
+### Start React App: yarn start
+Start the website server using "yarn start". The website will be accessible on localhost:3001
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
